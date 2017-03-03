@@ -1,0 +1,20 @@
+{
+  "name": "zacksleo/yii2-shop",
+  "description": "yii2 shop module",
+  "type": "yii2-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "zacksleo",
+      "email": "zacksleo@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "zacksleo\\yii2\\shop\\": "src"
+    }
+  }
+}
