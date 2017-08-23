@@ -9,6 +9,7 @@
       "email": "zacksleo@gmail.com"
     }
   ],
+  "minimum-stability": "dev",
   "require": {
     "zacksleo/yii2-cms": "^1.0",
     "yii2mod/yii2-cart": "^1.3"
