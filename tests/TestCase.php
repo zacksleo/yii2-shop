@@ -69,6 +69,10 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
                 '@npm' => '@vendor/npm-asset',
             ],
             'components' => [
+                'db' => [
+                    'class' => 'yii\db\Connection',
+                    'dsn' => 'sqlite::memory:',
+                ],
                 'request' => [
                     'cookieValidationKey' => 'wefJDF8sfdsfSDefwqdxj9oq',
                     'scriptFile' => __DIR__ . '/index.php',
