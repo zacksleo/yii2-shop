@@ -2,6 +2,7 @@
 
 namespace tests;
 
+use yii;
 use yii\helpers\ArrayHelper;
 use yii\web\AssetManager;
 use yii\web\View;
@@ -32,6 +33,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
                 ],
             ]
         );
+        $this->setupTestDbData();
     }
 
     /**
@@ -97,6 +99,28 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     protected function destroyApplication()
     {
         \Yii::$app = null;
+    }
+
+    /**
+     * Setup tables for test ActiveRecord
+     */
+    protected function setupTestDbData()
+    {
+        $db = Yii::$app->getDb();
+        // Structure :
+        $db->createCommand()->createTable('item', [
+            'id' => 'pk',
+            'item_name' => 'string(125) not null',
+            'subtitle' => 'string(125) not null',
+            'categories' => 'string not null',
+            'market_price' => 'decimal(10,2) not null default 0',
+            'price' => 'integer not null default 0',
+            'description' => 'text not null',
+            'logo_image' => 'string not null',
+            'status' => 'boolean not null default 1',
+            'created_at' => 'integer not null',
+            'updated_at' => 'integer not null',
+        ])->execute();
     }
 
     /**
