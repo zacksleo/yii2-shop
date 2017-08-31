@@ -13,17 +13,10 @@ class ItemTest extends TestCase
         $this->assertSame(200, $model->getPrice());
     }
 
-    public function testGetLabel()
-    {
-        $model = new Item();
-        $model->item_name = 'item name';
-        $this->assertSame('item name', $model->getLabel());
-    }
-
-    public function testGetUniqueId()
+    public function testGetId()
     {
         $model = new Item();
         $model->id = 1;
-        $this->assertSame(1, $model->getUniqueId());
+        $this->assertSame(1, $model->getId());
     }
 }
