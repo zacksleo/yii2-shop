@@ -27,6 +27,7 @@ class m170903_063331_create_shipping_address_table extends Migration
             'city' => $this->string()->notNull()->comment('市'),
             'province' => $this->string()->notNull()->comment('省'),
             'country' => $this->string()->comment('国家'),
+            'status' => $this->boolean()->defaultValue(0)->notNull()->comment('状态'),
         ], $tableOptions);
     }
 
