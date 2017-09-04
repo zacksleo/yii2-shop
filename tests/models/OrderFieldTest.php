@@ -20,7 +20,6 @@ class OrderFieldTest extends TestCase
     {
         $model = ProductOrder::findOne(1);
         $this->assertArrayHasKey('items', $model->toArray());
-        $this->assertArrayHasKey('order_id', $model->toArray());
     }
 
     public function testDelete()
