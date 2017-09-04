@@ -18,6 +18,8 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $updated_at
  * @property string $address
  * @property string $remark
+ * @property string $recipient
+ * @property string $phone
  */
 class Order extends \yii\db\ActiveRecord
 {
@@ -43,7 +45,7 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id'], 'required'],
+            [['user_id', 'address', 'recipient', 'phone'], 'required'],
             [['user_id', 'payment_method', 'status', 'created_at', 'updated_at'], 'integer'],
             [['total_amount'], 'number'],
             [['sn', 'address', 'remark'], 'string', 'max' => 255],
@@ -66,6 +68,8 @@ class Order extends \yii\db\ActiveRecord
             'updated_at' => '更新时间',
             'address' => '配送地址',
             'remark' => '备注',
+            'recipient' => '收件人',
+            'phone' => '电话',
         ];
     }
 

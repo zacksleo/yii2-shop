@@ -17,6 +17,8 @@ class OrderTest extends TestCase
         $model->remark = 'remark';
         $model->payment_method = Order::PAYMENT_METHOD_ALIPAY;
         $model->address = 'address';
+        $model->recipient = 'recipient';
+        $model->phone = '18888888888';
         $this->assertTrue($model->save());
     }
 
