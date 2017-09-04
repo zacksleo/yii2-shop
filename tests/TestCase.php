@@ -124,6 +124,8 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
         $db->createCommand()->createTable('order', [
             'id' => 'pk',
             'user_id' => 'integer not null',
+            'recipient' => 'string',
+            'phone' => 'string',
             'payment_method' => 'smallint',
             'total_amount' => 'decimal(10,2)',
             'status' => 'smallint',
