@@ -14,7 +14,7 @@ class ProductOrder extends Model
     public function rules()
     {
         return [
-            [['item_id', 'sales', 'freight'], 'required'],
+            [['order_id', 'sales', 'freight'], 'required'],
             [['items'], 'safe']
         ];
     }
@@ -22,7 +22,7 @@ class ProductOrder extends Model
     public function attributeLabels()
     {
         return [
-            'item_id' => 'Item ID',
+            'order_id' => 'Item ID',
             'items' => '内容',
         ];
     }

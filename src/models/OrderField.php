@@ -7,7 +7,6 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 use yii\base\DynamicModel;
-use zacksleo\yii2\shop\Module;
 use yii\base\InvalidParamException;
 
 /**
@@ -50,9 +49,7 @@ class OrderField extends \yii\db\ActiveRecord
                     try {
                         Json::decode($this->$attribute);
                     } catch (InvalidParamException $e) {
-                        $this->addError($attribute, Module::t('settings', '"{attribute}" must be a valid JSON object', [
-                            'attribute' => $attribute,
-                        ]));
+                        $this->addError($attribute, "$attribute must be a valid JSON object");
                     }
                 }
             ],
@@ -64,7 +61,7 @@ class OrderField extends \yii\db\ActiveRecord
 
         $return = [];
         foreach ($values as $key => $value) {
-            $return[$key] = Module::t('settings', $key);
+            $return[$key] = $key;
         }
 
         return $return;
@@ -83,8 +80,7 @@ class OrderField extends \yii\db\ActiveRecord
                 ['key'],
                 'unique',
                 'targetAttribute' => ['order_id', 'key'],
-                'message' =>
-                    Module::t('shop', '{attribute} "{value}" already exists for this section.')
+                'message' => '{attribute} "{value}" already exists for this section.'
             ],
             ['type', 'in', 'range' => array_keys($this->getTypes(false))],
             ['type', 'safe'],
@@ -97,11 +93,11 @@ class OrderField extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Module::t('shop', 'ID'),
-            'type' => Module::t('shop', 'Type'),
-            'order_id' => Module::t('shop', 'Item ID'),
-            'key' => Module::t('shop', 'Key'),
-            'value' => Module::t('shop', 'Value'),
+            'id' => 'id',
+            'type' => 'Type',
+            'order_id' => 'order_id',
+            'key' => 'Key',
+            'value' => 'Value',
         ];
     }
 
@@ -109,7 +105,7 @@ class OrderField extends \yii\db\ActiveRecord
     {
         $validators = $this->getTypes(false);
         if (!array_key_exists($this->type, $validators)) {
-            $this->addError('type', Module::t('shop', 'Please select correct type'));
+            $this->addError('type', 'Please select correct type');
             return false;
         }
 
