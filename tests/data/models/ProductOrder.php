@@ -14,7 +14,7 @@ class ProductOrder extends Model
     public function rules()
     {
         return [
-            [['order_id', 'sales', 'freight'], 'required'],
+            [['order_id',], 'required'],
             [['items'], 'safe']
         ];
     }
