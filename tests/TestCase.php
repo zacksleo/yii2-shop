@@ -140,6 +140,19 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
             'key' => 'string not null',
             'value' => 'text'
         ])->execute();
+        $db->createCommand()->createTable('shipping_address', [
+            'id' => 'pk',
+            'user_id' => 'integer not null',
+            'phone' => 'string not null',
+            'name' => 'string not null',
+            'street' => 'string not null',
+            'postcode' => 'string(10)',
+            'district' => 'string not null',
+            'city' => 'string not null',
+            'province' => 'string not null',
+            'country' => 'string',
+            'status' => 'boolean default 0 not null'
+        ])->execute();
     }
 
     /**
