@@ -21,10 +21,8 @@ use yii\behaviors\TimestampBehavior;
  */
 class Order extends \yii\db\ActiveRecord
 {
-
     const PAYMENT_METHOD_ALIPAY = 1;
     const PAYMENT_METHOD_WECHATPAY = 2;
-
     const STATUS_DELETED = -2; //已删除
     const STATUS_CANCELED = -1; //已取消
     const STATUS_UNPAID = 0; //未支付
@@ -93,5 +91,4 @@ class Order extends \yii\db\ActiveRecord
             self::STATUS_CONSUMED => '已解读',
         ];
     }
-
 }
