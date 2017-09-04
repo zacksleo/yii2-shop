@@ -31,6 +31,7 @@ class ShippingAddressTest extends TestCase
         $model->province = '浙江省';
         $model->postcode = '271400';
         $model->country = '中国';
+        $model->name = '小王';
         $this->assertTrue($model->save());
         $this->assertSame('中国浙江省杭州市滨江区', $model->getAddress());
         $this->assertSame('中国浙江省杭州市滨江区物联网街', $model->getFullAddress());
