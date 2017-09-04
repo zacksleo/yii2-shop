@@ -81,6 +81,25 @@ class Order extends \yii\db\ActiveRecord
         ];
     }
 
+    public function beforeSave($insert)
+    {
+        if ($insert) {
+            $this->sn = $this->createSN();
+        }
+        return parent::beforeSave($insert);
+    }
+
+    /**
+     * 产生序列号
+     * @param string $prefix 序列号前缀
+     * @return string
+     * @link http://goo.gl/TZYwZo 参考说明
+     */
+    public function createSN($prefix = '')
+    {
+        return $prefix . date('Y') . strtoupper(dechex(date('m'))) . date('d') . substr(time(), -5) . substr(microtime(), 2, 5) . sprintf('%02d', rand(0, 99));
+    }
+
     public function getStatusList()
     {
         return [

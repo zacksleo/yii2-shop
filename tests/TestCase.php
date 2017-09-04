@@ -121,6 +121,25 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
             'created_at' => 'integer not null',
             'updated_at' => 'integer not null',
         ])->execute();
+        $db->createCommand()->createTable('order', [
+            'id' => 'pk',
+            'user_id' => 'integer not null',
+            'payment_method' => 'smallint',
+            'total_amount' => 'decimal(10,2)',
+            'status' => 'smallint',
+            'sn' => 'string',
+            'created_at' => 'integer',
+            'updated_at' => 'integer',
+            'address' => 'string',
+            'remark' => 'string',
+        ])->execute();
+        $db->createCommand()->createTable('order_field', [
+            'id' => 'pk',
+            'order_id' => 'integer not null',
+            'type' => 'string',
+            'key' => 'string not null',
+            'value' => 'text'
+        ])->execute();
     }
 
     /**

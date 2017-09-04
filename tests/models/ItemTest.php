@@ -1,7 +1,8 @@
 <?php
 
-namespace tests;
+namespace tests\models;
 
+use tests\TestCase;
 use zacksleo\yii2\shop\models\Item;
 
 class ItemTest extends TestCase
