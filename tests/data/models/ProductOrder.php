@@ -40,7 +40,7 @@ class ProductOrder extends Model
             return false;
         }
         $model = new OrderField();
-        if ($model->setSetting($this->order_id, 'items', serialize($this->items), 'array')) {
+        if ($model->setSetting($this->order_id, 'items', serialize($this->items), 'string')) {
             return true;
         } else {
             $this->addErrors($model->getErrors());
