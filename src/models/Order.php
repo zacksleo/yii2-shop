@@ -104,7 +104,7 @@ class Order extends \yii\db\ActiveRecord
         return $prefix . date('Y') . strtoupper(dechex(date('m'))) . date('d') . substr(time(), -5) . substr(microtime(), 2, 5) . sprintf('%02d', rand(0, 99));
     }
 
-    public function getStatusList()
+    public static function getStatusList()
     {
         return [
             self::STATUS_DELETED => '已删除',
@@ -112,6 +112,14 @@ class Order extends \yii\db\ActiveRecord
             self::STATUS_UNPAID => '未支付',
             self::STATUS_PAID => '未解读',
             self::STATUS_CONSUMED => '已解读',
+        ];
+    }
+
+    public static function getPaymentMethodList()
+    {
+        return [
+            self::PAYMENT_METHOD_ALIPAY => '支付宝',
+            self::PAYMENT_METHOD_WECHATPAY => '微信',
         ];
     }
 }

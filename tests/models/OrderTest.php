@@ -31,8 +31,13 @@ class OrderTest extends TestCase
 
     public function testGetStatusList()
     {
-        $model = new Order();
-        $this->assertArrayHasKey('-2', $model->getStatusList());
-        $this->assertArrayHasKey('2', $model->getStatusList());
+        $this->assertArrayHasKey('-2', Order::getStatusList());
+        $this->assertArrayHasKey('2', Order::getStatusList());
+    }
+
+    public function testGetPaymentMethodList()
+    {
+        $this->assertArrayHasKey('1', Order::getPaymentMethodList());
+        $this->assertArrayHasKey('2', Order::getPaymentMethodList());
     }
 }
