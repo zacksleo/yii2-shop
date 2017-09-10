@@ -26,6 +26,6 @@ class m170903_133706_create_order_field_table extends Migration
      */
     public function down()
     {
-        $this->dropTable('{{%order_item}}');
+        $this->dropTable('{{%order_field}}');
     }
 }
