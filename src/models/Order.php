@@ -25,6 +25,8 @@ class Order extends \yii\db\ActiveRecord
 {
     const PAYMENT_METHOD_ALIPAY = 1;
     const PAYMENT_METHOD_WECHATPAY = 2;
+    const PAYMENT_METHOD_QRCODE = 3;
+
     const STATUS_DELETED = -2; //已删除
     const STATUS_CANCELED = -1; //已取消
     const STATUS_UNPAID = 0; //未支付
@@ -110,8 +112,8 @@ class Order extends \yii\db\ActiveRecord
             self::STATUS_DELETED => '已删除',
             self::STATUS_CANCELED => '已取消',
             self::STATUS_UNPAID => '未支付',
-            self::STATUS_PAID => '未解读',
-            self::STATUS_CONSUMED => '已解读',
+            self::STATUS_PAID => '已支付',
+            self::STATUS_CONSUMED => '已消费',
         ];
     }
 
@@ -120,6 +122,7 @@ class Order extends \yii\db\ActiveRecord
         return [
             self::PAYMENT_METHOD_ALIPAY => '支付宝',
             self::PAYMENT_METHOD_WECHATPAY => '微信',
+            self::PAYMENT_METHOD_QRCODE => '扫码转账',
         ];
     }
 }
