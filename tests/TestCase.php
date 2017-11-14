@@ -155,6 +155,14 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
             'country' => 'string',
             'status' => 'boolean default 0 not null'
         ])->execute();
+        $db->createCommand()->createTable('order_payment_record', [
+            'id' => 'pk',
+            'order_sn' => 'string not null',
+            'trace_no' => 'string',
+            'amount' => 'decimal(10,2)',
+            'created_at' => 'integer',
+            'updated_at' => 'integer'
+        ])->execute();
     }
 
     /**

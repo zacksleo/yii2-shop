@@ -125,4 +125,12 @@ class Order extends \yii\db\ActiveRecord
             self::PAYMENT_METHOD_QRCODE => '扫码转账',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrderPaymentRecord()
+    {
+        return $this->hasOne(OrderPaymentRecord::className(), ['order_sn' => 'sn']);
+    }
 }
