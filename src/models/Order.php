@@ -27,6 +27,9 @@ class Order extends \yii\db\ActiveRecord
     const PAYMENT_METHOD_WECHATPAY = 2;
     const PAYMENT_METHOD_QRCODE = 3;
 
+    const STATUS_RETURN_FAILED = -5; //退货失败
+    const STATUS_RETURNED = -4;// 已退货
+    const STATUS_RETURNING = -3; //退货中
     const STATUS_DELETED = -2; //已删除
     const STATUS_CANCELED = -1; //已取消
     const STATUS_UNPAID = 0; //未支付
@@ -109,6 +112,9 @@ class Order extends \yii\db\ActiveRecord
     public static function getStatusList()
     {
         return [
+            self::STATUS_RETURN_FAILED => '退货失败',
+            self::STATUS_RETURNED => '已退货',
+            self::STATUS_RETURNING => '退货中',
             self::STATUS_DELETED => '已删除',
             self::STATUS_CANCELED => '已取消',
             self::STATUS_UNPAID => '未支付',
