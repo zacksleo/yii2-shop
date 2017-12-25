@@ -134,6 +134,8 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
             'updated_at' => 'integer',
             'address' => 'string',
             'remark' => 'string',
+            'express' => 'string',
+            'tracking_no' => 'string',
         ])->execute();
         $db->createCommand()->createTable('order_field', [
             'id' => 'pk',
