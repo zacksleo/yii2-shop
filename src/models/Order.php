@@ -149,4 +149,11 @@ class Order extends \yii\db\ActiveRecord
     {
         return $this->hasOne(OrderPaymentRecord::className(), ['order_sn' => 'sn']);
     }
+
+    public function afterDelete()
+    {
+        parent::afterDelete();
+        OrderField::deleteAll(['order_id' => $this->id]);
+        OrderPaymentRecord::deleteAll(['order_sn' => $this->sn]);
+    }
 }
