@@ -20,6 +20,8 @@ use yii\behaviors\TimestampBehavior;
  * @property string $remark
  * @property string $recipient
  * @property string $phone
+ * @property string $express
+ * @property string $tracking_no
  */
 class Order extends \yii\db\ActiveRecord
 {
@@ -34,7 +36,10 @@ class Order extends \yii\db\ActiveRecord
     const STATUS_CANCELED = -1; //已取消
     const STATUS_UNPAID = 0; //未支付
     const STATUS_PAID = 1; //已支付
-    const STATUS_CONSUMED = 2; //已消费
+    const STATUS_UNSHIPPED = 2; //未发货
+    const STATUS_SHIPPED = 3; //已发货
+    const STATUS_DELIVERED = 4; //已签收
+    const STATUS_CONSUMED = 5; //已消费
 
     /**
      * @inheritdoc
@@ -53,7 +58,7 @@ class Order extends \yii\db\ActiveRecord
             [['user_id', 'address', 'recipient', 'phone'], 'required'],
             [['user_id', 'payment_method', 'status', 'created_at', 'updated_at'], 'integer'],
             [['total_amount'], 'number'],
-            [['sn', 'address', 'remark'], 'string', 'max' => 255],
+            [['sn', 'address', 'remark', 'express', 'tracking_no'], 'string', 'max' => 255],
         ];
     }
 
@@ -75,6 +80,8 @@ class Order extends \yii\db\ActiveRecord
             'remark' => '备注',
             'recipient' => '收件人',
             'phone' => '电话',
+            'express' => '送货公司',
+            'tracking_no' => '物流编号',
         ];
     }
 
@@ -119,6 +126,9 @@ class Order extends \yii\db\ActiveRecord
             self::STATUS_CANCELED => '已取消',
             self::STATUS_UNPAID => '未支付',
             self::STATUS_PAID => '已支付',
+            self::STATUS_UNSHIPPED => '未发货',
+            self::STATUS_SHIPPED => '已发货',
+            self::STATUS_DELIVERED => '已签收',
             self::STATUS_CONSUMED => '已消费',
         ];
     }

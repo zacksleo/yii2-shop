@@ -28,6 +28,8 @@ class m170903_131715_create_order_table extends Migration
             'created_at' => $this->integer()->comment('创建时间'),
             'updated_at' => $this->integer()->comment('更新时间'),
             'address' => $this->string()->comment('配送地址'),
+            'express' => $this->string()->comment('快递公司'),
+            'tracking_no' => $this->string()->comment('物流编号'),
             'remark' => $this->string()->comment('备注'),
         ], $tableOptions);
     }
