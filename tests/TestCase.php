@@ -123,6 +123,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
         ])->execute();
         $db->createCommand()->createTable('order', [
             'id' => 'pk',
+            'name' => 'string',
             'user_id' => 'integer not null',
             'recipient' => 'string',
             'phone' => 'string',

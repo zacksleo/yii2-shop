@@ -19,6 +19,7 @@ class OrderTest extends TestCase
         $model->address = 'address';
         $model->recipient = 'recipient';
         $model->phone = '18888888888';
+        $model->name = 'order name';
         $this->assertTrue($model->save());
     }
 
