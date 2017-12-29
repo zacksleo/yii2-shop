@@ -9,6 +9,7 @@ use yii\behaviors\TimestampBehavior;
  * This is the model class for table "{{%order}}".
  *
  * @property integer $id
+ * @property string $name
  * @property integer $user_id
  * @property integer $payment_method
  * @property string $total_amount
@@ -55,10 +56,10 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'address', 'recipient', 'phone'], 'required'],
+            [['user_id', 'address', 'recipient', 'phone', 'name'], 'required'],
             [['user_id', 'payment_method', 'status', 'created_at', 'updated_at'], 'integer'],
             [['total_amount'], 'number'],
-            [['sn', 'address', 'remark', 'express', 'tracking_no'], 'string', 'max' => 255],
+            [['sn', 'address', 'remark', 'express', 'tracking_no', 'name'], 'string', 'max' => 255],
         ];
     }
 
@@ -69,6 +70,7 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'name'=> '名称',
             'user_id' => '用户',
             'payment_method' => '支付方式',
             'total_amount' => '总金额',

@@ -18,6 +18,7 @@ class m170903_131715_create_order_table extends Migration
         }
         $this->createTable('{{%order}}', [
             'id' => $this->primaryKey(),
+            'name' => $this->string()->notNull()->comment('名称'),
             'user_id' => $this->integer()->notNull()->comment('用户'),
             'recipient' => $this->string()->comment('收件人'),
             'phone' => $this->string()->comment('电话'),
