@@ -10,11 +10,8 @@
     }
   ],
   "minimum-stability": "dev",
-  "require": {
-    "zacksleo/yii2-cms": "^1.0",
-    "omnilight/yii2-shopping-cart": "^1.2"
-  },
   "require-dev": {
+    "omnilight/yii2-shopping-cart": "^1.2",
     "phpunit/phpunit": "~4.0"
   },
   "autoload": {
@@ -27,5 +24,8 @@
       "type": "composer",
       "url": "https://asset-packagist.org"
     }
-  ]
+  ],
+  "suggest": {
+    "zacksleo/yii2-cms": "Yii2 cms"
+  }
 }
