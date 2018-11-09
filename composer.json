@@ -12,7 +12,8 @@
   "minimum-stability": "dev",
   "require-dev": {
     "omnilight/yii2-shopping-cart": "^1.2",
-    "phpunit/phpunit": "~4.0"
+    "phpunit/phpunit": "~4.0",
+    "zacksleo/yii2-cms": "^1.0"
   },
   "autoload": {
     "psr-4": {
@@ -24,8 +25,5 @@
       "type": "composer",
       "url": "https://asset-packagist.org"
     }
-  ],
-  "suggest": {
-    "zacksleo/yii2-cms": "Yii2 cms"
-  }
+  ]
 }
